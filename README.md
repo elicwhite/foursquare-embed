@@ -1,0 +1,1 @@
+This enables you to embed Foursquare venue widgets into your website
