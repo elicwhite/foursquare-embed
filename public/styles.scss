@@ -14,6 +14,7 @@ a:hover {
 
 .wrapper {
   padding: 20px;
+  overflow: hidden;
 }
 
 .image, .primaryInfo {
@@ -23,6 +24,14 @@ a:hover {
 .image {
   width: 88px;
   margin-right: 20px;
+
+  img {
+    vertical-align: bottom;
+  }
+}
+
+.primaryInfo {
+  width: calc(100% - 108px);
 }
 
 .venueName {
@@ -32,6 +41,16 @@ a:hover {
   letter-spacing: -1px;
 }
 
+.categories {
+  a, a:link, a:visited, a:active {
+    color: inherit;
+  }
+}
+
 .address {
   color: #999;
+}
+
+a, a:link, a:visited, a:active {
+  color: #2d5be3;
 }
