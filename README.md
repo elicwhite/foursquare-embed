@@ -1,4 +1,4 @@
-This enables you to embed Foursquare venue widgets into your website
+This enables you to embed Foursquare venue widgets into your website. Examples [here](http://thesavior.github.io/foursquare-embed/)
 
 foursquare-embed
 =====
@@ -19,7 +19,7 @@ Add an iframe to your page with a src of `http://thesavior.github.io/foursquare-
 
 and style the iframe however you'd like to match your page.
 
-Check out `/index.html` for more examples.
+Check out [`index.html`](http://thesavior.github.io/foursquare-embed/) for more examples.
 
 ## Contribute
 
