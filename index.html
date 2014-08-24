@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Foursquare Embedded Venue Demo</title>
+    <style>
+    body {
+      background-color: #eae8e4;
+    }
+
+    .example {
+      margin-bottom: 20px;
+      width: 700px;
+
+    }
+
+    .fsq-venue {
+      background-color: white;
+      max-width: 99%;
+      min-width: 420px;
+      display: block;
+      margin: auto;
+      padding: 0px;
+      border-radius: 3px;
+      box-shadow: rgba(0,0,0,0.25) 0 1px 3px 0;
+      position: static;
+      visibility: visible;
+      float: none;
+
+      width: 600px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="example">
+      <iframe src="embed.html" height="128" scrolling="no" frameborder="0" allowtransparency="true" class="fsq-venue" title="Embedded Venue"></iframe>
+    </div>
+
+    <div class="example">
+      <iframe src="embed.html?venue=412d2800f964a520df0c1fe3" scrolling="no" height="142" frameborder="0" allowtransparency="true" class="fsq-venue" title="Embedded Venue"></iframe>
+    </div>
+  </body>
+</html>
