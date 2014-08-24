@@ -39,9 +39,9 @@ module.exports = function(grunt) {
         }
       },
 
-      demo: {
-        files: 'public/demo.html',
-        tasks: ['copy:demo'],
+      index: {
+        files: 'public/index.html',
+        tasks: ['copy:index'],
         options: {
           livereload: true,
         }
@@ -54,9 +54,9 @@ module.exports = function(grunt) {
         dest: 'build/embed.html'
       },
 
-      demo: {
-        src: 'public/demo.html',
-        dest: 'build/demo.html'
+      index: {
+        src: 'public/index.html',
+        dest: 'build/index.html'
       },
 
       javascript: {
