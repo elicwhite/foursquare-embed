@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       },
 
       html: {
-        files: 'public/index.html',
+        files: 'public/embed.html',
         tasks: ['copy:html'],
         options: {
           livereload: true,
@@ -50,8 +50,8 @@ module.exports = function(grunt) {
 
     copy: {
       html: {
-        src: 'public/index.html',
-        dest: 'build/index.html'
+        src: 'public/embed.html',
+        dest: 'build/embed.html'
       },
 
       demo: {
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: { // Dictionary of files
-          'build/index.html': 'build/index.html'
+          'build/embed.html': 'build/embed.html'
         }
       }
     },
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
           cssmin: true,
           uglify: true
         },
-        src: ['build/index.html'],
+        src: ['build/embed.html'],
         dest: ['build/']
       }
     },
@@ -97,6 +97,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // Default task(s).
-  grunt.registerTask('default', ['copy', 'sass', 'inline', 'htmlmin'/*, 'clean'*/]);
+  grunt.registerTask('default', ['copy', 'sass', 'inline', 'htmlmin']);
+  grunt.registerTask('dev', ['copy', 'sass', 'watch']);
 
 };
