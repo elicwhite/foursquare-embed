@@ -94,6 +94,12 @@ a:hover {
   width: calc(100% - 108px);
 }
 
+.venueLink {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
 .venueName {
   line-height: 30px;
   font-size: 30px;

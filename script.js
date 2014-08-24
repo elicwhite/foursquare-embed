@@ -43,7 +43,10 @@ function init() {
       var venue = data.response.venue;
       console.log(venue);
 
-      // debugger;
+      var links = document.getElementsByClassName("venueLink");
+      for (var i = 0; i < links.length; i++) {
+        links[i].href = venue.canonicalUrl;
+      }
 
       var firstIcon = venue.categories[0].icon;
 
@@ -56,8 +59,6 @@ function init() {
 
         homeCity = venue.page.user.homeCity;
       }
-
-
 
       gid("image").src = photoUrl;
       gid("venueName").textContent = venue.name;
@@ -85,7 +86,16 @@ function init() {
       gid("address").textContent = address;
 
       var websiteEle = gid("website");
-      websiteEle.href = website.textContent = venue.url;
+
+      if (venue.url) {
+        websiteEle.href = venue.url;
+        website.textContent = websiteEle.host;
+      }
+      else
+      {
+        // Some venues don't have urls. Delete the element
+        websiteEle.parentNode.removeChild(websiteEle);
+      }
 
 
     } else {

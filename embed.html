@@ -1,1 +1,29 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Foursquare Venue</title><meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimal-ui"><meta name="apple-mobile-web-app-capable" content="yes"><style>html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a,a:active,a:hover,a:visited{text-decoration:none;color:inherit}*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}body{color:#4e595d;letter-spacing:0;font-family:'Helvetica Neue',Helvetica,Verdana,Arial,sans-serif;font-size:13px;line-height:18px}a:hover{text-decoration:underline}.wrapper{padding:20px;overflow:hidden}.image,.primaryInfo{float:left}.image{width:88px;margin-right:20px}.image img{vertical-align:bottom}.primaryInfo{width:calc(100% - 108px)}.venueName{line-height:30px;font-size:30px;font-weight:700;letter-spacing:-1px}.categories a,.categories a:link,.categories a:visited,.categories a:active{color:inherit}.address{color:#999}a,a:link,a:visited,a:active{color:#2d5be3}</style><script>function gid(e){return document.getElementById(e)}function getQueryVariables(){for(var e={},t=window.location.search.substring(1),a=t.split("&"),n=0;n<a.length;n++){var r=a[n].split("=");e[decodeURIComponent(r[0])]=decodeURIComponent(r[1])}return e}function init(){var e="4d52f677253d6a314aa77629";pageParams.venue&&(e=pageParams.venue);var t="V4AP0ACTWURP5EPUN1MTBUGRPHS0DADWBXE5F33CIU4MZ24C",a="LGDJS2YQXBY4YPBY30QCP2F1CL2O5KQUUCFYYZAS4NUDPMUZ",n="https://api.foursquare.com/v2",r="?client_id="+t+"&client_secret="+a+"&v=20140823",o=n+"/venues/"+e+r;request=new XMLHttpRequest,request.open("GET",o,!0),request.onload=function(){if(request.status>=200&&request.status<400){data=JSON.parse(request.responseText);var e=data.response.venue;console.log(e);var t=e.categories[0].icon,a=t.prefix+"bg_88"+t.suffix,n=e.location.city+", "+e.location.state;if(e.page){var r=e.page.user.photo;a=r.prefix+"88x88"+r.suffix,n=e.page.user.homeCity}gid("image").src=a,gid("venueName").textContent=e.name;for(var o=document.createElement("div"),i=0;i<e.categories.length;i++){var s=e.categories[i],d=document.createElement("a");d.className="categoryLink",d.href="/explore?q="+s.name+"&amp;near="+n,d.textContent=s.name,o.appendChild(d),i<e.categories.length-1&&o.appendChild(document.createTextNode(", "))}gid("categories").innerHTML=o.innerHTML;var c=e.location.formattedAddress.join(", ");gid("address").textContent=c;var u=gid("website");u.href=website.textContent=e.url}else console.error("an error occurred")},request.send()}var pageParams=getQueryVariables();"interactive"===document.readyState||"complete"===document.readyState?init():document.addEventListener("DOMContentLoaded",init,!1);</script></head><body><div class="wrapper"><div class="image"><img id="image" src=""></div><div class="primaryInfo"><h1 class="venueName" id="venueName"></h1><div class="categories" id="categories"></div><div class="address"><div class="adr" id="address"></div></div><a class="website" id="website" href=""></a></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Foursquare Venue</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="image">
+        <a class="venueLink"><img id="image" src="" /><a>
+      </div>
+
+      <div class="primaryInfo">
+        <a class="venueLink"><h1 class="venueName" id="venueName"></h1></a>
+        <div class="categories" id="categories"></div>
+        <div class="address">
+            <div class="adr" id="address"></div>
+        </div>
+        <a class="website" id="website" href="">
+        </a>
+
+      </div>
+    </div>
+  </body>
+</html>
