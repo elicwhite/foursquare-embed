@@ -1,3 +1,5 @@
+"use strict";
+
 function gid(id) {
   return document.getElementById(id);
 }
@@ -32,13 +34,13 @@ function init() {
 
   var url = prefix + "/venues/" + venueId + suffix;
 
-  request = new XMLHttpRequest();
+  var request = new XMLHttpRequest();
   request.open('GET', url, true);
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       // Success!
-      data = JSON.parse(request.responseText);
+      var data = JSON.parse(request.responseText);
 
       var venue = data.response.venue;
       console.log(venue);
@@ -64,7 +66,7 @@ function init() {
       gid("venueName").textContent = venue.name;
 
       var temp = document.createElement("div");
-      for (var i = 0; i < venue.categories.length; i++) {
+      for (i = 0; i < venue.categories.length; i++) {
         var category = venue.categories[i];
 
         var ele = document.createElement("a");
@@ -89,7 +91,7 @@ function init() {
 
       if (venue.url) {
         websiteEle.href = venue.url;
-        website.textContent = websiteEle.host;
+        websiteEle.textContent = websiteEle.host;
       }
       else
       {
@@ -106,7 +108,7 @@ function init() {
 
   request.send();
 
-   // @if NODE_ENV=='PRODUCTION'
+   // @if ENV=='PRODUCTION'
   setUpGoogleAnalytics();
   /* @endif */
 
