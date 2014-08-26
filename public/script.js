@@ -106,7 +106,7 @@ function init() {
 
   request.send();
 
-   // @if NODE_ENV=='DEVELOPMENT'
+   // @if NODE_ENV=='PRODUCTION'
   setUpGoogleAnalytics();
   /* @endif */
 
