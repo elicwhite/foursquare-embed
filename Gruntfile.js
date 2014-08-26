@@ -15,6 +15,16 @@ module.exports = function(grunt) {
       }
     },
 
+    env: {
+      dev: {
+        ENV: 'DEVELOPMENT'
+      },
+
+      prod: {
+        ENV: 'PRODUCTION'
+      }
+    },
+
     watch: {
       scss: {
         files: ['public/*.scss'],
@@ -25,7 +35,7 @@ module.exports = function(grunt) {
       },
       javascript: {
         files: 'public/*.js',
-        tasks: ['copy:javascript'],
+        tasks: ['env:dev', 'preprocess'],
         options: {
           livereload: true,
         }
@@ -57,11 +67,6 @@ module.exports = function(grunt) {
       index: {
         src: 'public/index.html',
         dest: 'build/index.html'
-      },
-
-      javascript: {
-        src: 'public/script.js',
-        dest: 'build/script.js'
       }
     },
 
@@ -92,12 +97,19 @@ module.exports = function(grunt) {
     clean: {
       release: ["build/script.js", "build/styles.css"]
     },
+
+    preprocess: {
+      js: {
+        src: 'public/script.js',
+        dest: 'build/script.js'
+      },
+    },
   });
 
   require('load-grunt-tasks')(grunt);
 
   // Default task(s).
-  grunt.registerTask('default', ['copy', 'sass', 'inline', 'htmlmin']);
-  grunt.registerTask('dev', ['copy', 'sass', 'watch']);
+  grunt.registerTask('default', ['env:prod', 'copy', 'preprocess', 'sass', 'inline', 'htmlmin']);
+  grunt.registerTask('dev', ['env:dev', 'copy', 'preprocess', 'sass', 'watch']);
 
 };
