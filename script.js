@@ -48,6 +48,7 @@ function init() {
       var links = document.getElementsByClassName("venueLink");
       for (var i = 0; i < links.length; i++) {
         links[i].href = venue.canonicalUrl;
+        links[i].target = "_blank";
       }
 
       var firstIcon = venue.categories[0].icon;
