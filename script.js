@@ -43,7 +43,6 @@ function init() {
       var data = JSON.parse(request.responseText);
 
       var venue = data.response.venue;
-      console.log(venue);
 
       var links = document.getElementsByClassName("venueLink");
       for (var i = 0; i < links.length; i++) {
@@ -98,6 +97,25 @@ function init() {
       {
         // Some venues don't have urls. Delete the element
         websiteEle.parentNode.removeChild(websiteEle);
+      }
+
+      // Add the photos
+      if (pageParams.photos == "true" && venue.photos && venue.photos.groups.length > 0) {
+        var photoWrapper = gid("photos");
+        photoWrapper.classList.remove("hidden");
+
+        var photos = venue.photos.groups[0].items;
+
+        // Don't try to load more pictures than will fit on one line.
+        // 160 is the width of the image + margin
+        var maxPhotos = Math.floor(photoWrapper.offsetWidth / 160);
+
+        for (var i = 0; i < Math.min(maxPhotos, photos.length); i++) {
+          var ele = document.createElement("img");
+          ele.src = photos[i].prefix+"150x150"+photos[i].suffix;
+          photoWrapper.appendChild(ele);
+
+        }
       }
 
 

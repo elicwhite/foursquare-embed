@@ -78,6 +78,10 @@ a:hover {
   overflow: hidden;
 }
 
+.venueInfo {
+  overflow: hidden;
+}
+
 .image, .primaryInfo {
   float: left;
 }
@@ -92,6 +96,7 @@ a:hover {
 
 .primaryInfo {
   width: calc(100% - 108px);
+  white-space: nowrap;
 }
 
 .venueLink {
@@ -117,4 +122,35 @@ a:hover {
 
 a, a:link, a:visited, a:active {
   color: #2d5be3;
+}
+
+.photos {
+  margin-top: 10px;
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+.photos.hidden {
+  display: none;
+}
+.photos img {
+  max-width: 150px;
+  min-width: 150px;
+  vertical-align: bottom;
+  box-shadow: 1px 1px 1px #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
